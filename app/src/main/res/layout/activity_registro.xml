@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:background="@color/rojo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Resres"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/naranja"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:layout_constraintTop_toBottomOf="@id/header">
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/amarillo"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Registro"
+            android:textColor="@color/negro"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/nombre"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/negro"
+            android:inputType="text"
+            android:hint="@string/nombre"
+            android:background="@drawable/rounded_background_gris"/>
+
+        <EditText
+            android:id="@+id/apellido"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/negro"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/apellido"
+            android:background="@drawable/rounded_background_gris"/>
+
+        <EditText
+            android:id="@+id/correo"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/negro"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/correo"
+            android:background="@color/gris"/>
+
+        <EditText
+            android:id="@+id/nacimiento"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/negro"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="@string/nacimiento"
+            android:background="@drawable/rounded_background_gris"/>
+
+
+        <Spinner
+            android:id="@+id/sexo"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="16dp"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/rounded_background_gris"/>
+
+
+        <EditText
+            android:id="@+id/contrasena"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/negro"
+            android:background="@drawable/rounded_background_gris"
+            android:inputType="textPassword"
+            android:hint="@string/contrasena" />
+
+        <Button
+            android:id="@+id/siguiente"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:text="@string/registrate"
+            android:backgroundTint="@color/amarillo"
+            android:textColor="@color/negro"
+            android:onClick="onSignIn"
+            android:textStyle="normal|bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

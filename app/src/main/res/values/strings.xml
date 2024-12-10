@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">final-am-acn4a-kitagawa</string>
+
+    <!-- Login -->
+    <string name="correo">Correo</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+
+
+    <!-- Registro -->
+    <string name="registrate">Registrate</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="nacimiento">Fecha de nacimiento</string>
+    <string name="default_sex">Indique su sexo</string>
+    <string-array name="sex_options">
+        <item>Masculino</item>
+        <item>Femenino</item>
+        <item>Otro</item>
+    </string-array>
+
+
+
 </resources>

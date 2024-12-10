@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:background="@color/rojo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Resres"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/naranja"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:layout_constraintTop_toBottomOf="@id/header">
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/amarillo"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Inicia sesión"
+            android:textColor="@color/negro"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/correo"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="16dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/correo"
+            android:background="@color/gris"/>
+
+        <EditText
+            android:id="@+id/contrasena"
+            android:layout_width="306dp"
+            android:paddingStart="16dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/gris"
+            android:inputType="textPassword"
+            android:hint="@string/contrasena" />
+
+        <Button
+            android:id="@+id/textViewRegister"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/amarillo"
+            android:clickable="true"
+            android:onClick="openRegistrationActivity"
+            android:text="¿No tienes una cuenta? Regístrate"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/ingresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/amarillo"
+            android:layout_marginTop="10dp"
+            android:text="@string/ingresar"
+            android:textStyle="normal|bold"
+            android:onClick="onLogin"
+            android:textColor="@color/negro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
