@@ -48,6 +48,16 @@
         app:layout_constraintTop_toBottomOf="@+id/header"
         tools:layout_constraintTop_toBottomOf="@id/header">
 
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="95dp"
+            android:layout_height="120dp"
+            android:contentDescription="Logo de la app"
+            android:src="@drawable/menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header" />
+
         <TextView
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
