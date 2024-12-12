@@ -20,6 +20,8 @@
         <item>Otro</item>
     </string-array>
 
+    <!-- Registro -->
+    <string name="CerrarSesion">Cerrar Sesion</string>
 
 
 </resources>
