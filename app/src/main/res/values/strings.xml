@@ -20,8 +20,12 @@
         <item>Otro</item>
     </string-array>
 
-    <!-- Registro -->
+    <!-- Menu principal -->
     <string name="CerrarSesion">Cerrar Sesion</string>
+    <string name="mis_reservas">Mis reservas</string>
+    <string name="nueva_reserva">Nueva reserva</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="nombreprincipal"> -- </string>
 
 
 </resources>
