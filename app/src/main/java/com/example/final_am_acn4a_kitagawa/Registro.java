@@ -115,6 +115,7 @@ public class Registro extends AppCompatActivity {
 
         HashMap<String, String> Datos = new HashMap<>();
         Datos.put("uid", uid);
+        Datos.put("nombre", nombre);
         Datos.put("apellido", apellido);
         Datos.put("correo", correo);
         Datos.put("nacimiento", nacimiento);
