@@ -27,5 +27,12 @@
     <string name="bienvenido">Bienvenido</string>
     <string name="nombreprincipal"> -- </string>
 
+    <!-- Nueva Reserva -->
+    <string name="la_parolaccia">La Parolaccia</string>
+    <string name="la_bistecca">La Bistecca</string>
+    <string name="gourmet_porteno">Gourmet Porteño</string>
+    <string name="hardrock">Hardrock</string>
+    <string name="seleccion">Seleccione el restaurante</string>
+
 
 </resources>
