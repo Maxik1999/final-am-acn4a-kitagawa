@@ -59,6 +59,14 @@ public class Registro extends AppCompatActivity {
             }
         });
 
+        Button volverBtn = findViewById(R.id.volverBtn);
+
+        // Configurar el Listener del botón
+        volverBtn.setOnClickListener(v -> {
+            // Cuando el botón es presionado, se llama al método onBackPressed()
+            onBackPressed();
+        });
+
     }
 
     private void ValidarDatos() {
