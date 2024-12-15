@@ -88,6 +88,13 @@ public class MisReservas extends AppCompatActivity {
                 TextView horaTextView = reservaView.findViewById(R.id.textViewHora);
                 TextView comensalesTextView = reservaView.findViewById(R.id.textViewComensales);
 
+                // Asignar los títulos
+                TextView restauranteTitle = reservaView.findViewById(R.id.textViewRestauranteT);
+                TextView fechaTitle = reservaView.findViewById(R.id.textViewFechaT);
+                TextView horaTitle = reservaView.findViewById(R.id.textViewHoraT);
+                TextView comensalesTitle = reservaView.findViewById(R.id.textViewComensalesT);
+
+                // Asignar los valores de la reserva a los TextViews correspondientes
                 restauranteTextView.setText(reserva.getRestaurante());
                 fechaTextView.setText(reserva.getFecha());
                 horaTextView.setText(reserva.getHora());
@@ -98,5 +105,6 @@ public class MisReservas extends AppCompatActivity {
             }
         }
     }
+
 }
 

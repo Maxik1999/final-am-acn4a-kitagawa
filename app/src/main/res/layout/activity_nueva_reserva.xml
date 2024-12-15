@@ -152,25 +152,29 @@
             android:textSize="24sp" />
       </LinearLayout>
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:layout_marginBottom="20dp"
-          android:gravity="center"
-          android:orientation="vertical">
-
-        <Button
-            android:id="@+id/botonRegresar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/amarillo"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/negro"
-            android:onClick="volverAMain"
-            android:text="Volver a la pagina anterior" />
-
-      </LinearLayout>
-
     </LinearLayout>
   </ScrollView>
+
+  <!-- Footer with the 'Volver a la página anterior' button -->
+  <LinearLayout
+      android:id="@+id/footer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:gravity="center"
+      android:background="@color/naranja"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
+
+    <Button
+        android:id="@+id/botonRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/amarillo"
+        android:text="Volver al menú principal"
+        android:textColor="@color/negro"
+        android:onClick="volverAMain"
+        android:layout_marginTop="16dp" />
+  </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

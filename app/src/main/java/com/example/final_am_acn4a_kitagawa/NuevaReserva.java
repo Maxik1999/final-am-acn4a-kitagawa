@@ -70,4 +70,10 @@ public class NuevaReserva extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void volverAMain(View view) {
+        Intent intent = new Intent(NuevaReserva.this, MenuPrincipal.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

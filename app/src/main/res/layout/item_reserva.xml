@@ -1,47 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/rounded_background">
 
+    <!-- Título para Restaurante -->
+    <TextView
+        android:id="@+id/textViewRestauranteT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restaurante:"
+        android:textStyle="bold"
+        android:textColor="@color/negro"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Información del Restaurante -->
     <TextView
         android:id="@+id/textViewRestaurante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Restaurante"
-        android:textStyle="bold"
         android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewRestauranteT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Título para Fecha -->
+    <TextView
+        android:id="@+id/textViewFechaT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha:"
+        android:textStyle="bold"
+        android:textColor="@color/negro"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintTop_toBottomOf="@id/textViewRestaurante"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Información de la Fecha -->
     <TextView
         android:id="@+id/textViewFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fecha"
         android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewRestaurante"
+        app:layout_constraintTop_toBottomOf="@id/textViewFechaT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Título para Hora -->
+    <TextView
+        android:id="@+id/textViewHoraT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora:"
+        android:textStyle="bold"
+        android:textColor="@color/negro"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintTop_toBottomOf="@id/textViewFecha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Información de la Hora -->
     <TextView
         android:id="@+id/textViewHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hora"
         android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewFecha"
+        app:layout_constraintTop_toBottomOf="@id/textViewHoraT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Título para Comensales -->
+    <TextView
+        android:id="@+id/textViewComensalesT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comensales:"
+        android:textStyle="bold"
+        android:textColor="@color/negro"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintTop_toBottomOf="@id/textViewHora"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Información de los Comensales -->
     <TextView
         android:id="@+id/textViewComensales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Comensales"
-        app:layout_constraintTop_toBottomOf="@id/textViewHora"
+        app:layout_constraintTop_toBottomOf="@id/textViewComensalesT"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
