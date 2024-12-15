@@ -23,78 +23,62 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rounded_background_rojo"
-        android:text="Resres"
+        android:text="Mis Reservas"
         android:textAlignment="center"
         android:textColor="@color/negro"
         android:textSize="34sp"
         android:textStyle="bold" />
   </LinearLayout>
 
-  <!-- ScrollView with content -->
+  <!-- ScrollView para mostrar las reservas -->
   <ScrollView
-      android:id="@+id/scrollView"
+      android:id="@+id/scrollViewReservas"
       android:layout_width="0dp"
       android:layout_height="0dp"
       app:layout_constraintTop_toBottomOf="@+id/header"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/footer"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent">
 
+    <!-- LinearLayout para contener las reservas -->
     <LinearLayout
-        android:id="@+id/content"
+        android:id="@+id/linearLayoutReservas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:padding="16dp" />
 
-
-      <TextView
-          android:layout_width="411dp"
-          android:layout_height="wrap_content"
-          android:layout_margin="10dp"
-          android:autoSizeTextType="uniform"
-          android:background="?android:attr/selectableItemBackground"
-          android:text="Mis Reservas"
-          android:textAlignment="center"
-          android:textSize="24sp"
-          android:textStyle="bold" />
-
-
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="20dp"
-          android:gravity="center"
-          android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textViewDatos"
-            android:layout_width="371dp"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-      </LinearLayout>
-
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="20dp"
-          android:gravity="center"
-          android:orientation="vertical">
-
-        <Button
-            android:id="@+id/botonRegresar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/amarillo"
-            android:textColor="@color/negro"
-            android:onClick="volverAMenuPrincipal"
-            android:text="Volver al menú principal" />
-      </LinearLayout>
-
-    </LinearLayout>
   </ScrollView>
 
+  <TextView
+      android:id="@+id/textViewDatos"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Cargando reservas..."
+      android:textSize="18sp"
+      android:textColor="@color/negro"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="20dp"
+      app:layout_constraintTop_toBottomOf="@+id/scrollViewReservas"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+  <!-- Footer -->
+  <LinearLayout
+      android:id="@+id/footer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toBottomOf="parent">
+
+    <Button
+        android:id="@+id/botonRegresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/amarillo"
+        android:onClick="volverAMenuPrincipal"
+        android:text="Volver al menú principal"
+        android:textColor="@color/negro" />
+  </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

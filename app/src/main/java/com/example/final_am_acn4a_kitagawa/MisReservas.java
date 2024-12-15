@@ -1,88 +1,102 @@
 package com.example.final_am_acn4a_kitagawa;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
-
-import com.google.firebase.auth.FirebaseAuth;
+import java.util.ArrayList;
 
 public class MisReservas extends AppCompatActivity {
 
-    private TextView textViewDatos;
+    private LinearLayout linearLayoutReservas;  // LinearLayout para contener las reservas
+    private TextView textViewDatos;  // TextView para mostrar el mensaje de "Cargando reservas..."
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mis_reservas);
 
-        textViewDatos = findViewById(R.id.textViewDatos);
+        linearLayoutReservas = findViewById(R.id.linearLayoutReservas);  // LinearLayout donde se agregarán las reservas
+        textViewDatos = findViewById(R.id.textViewDatos);  // TextView para mostrar el estado
 
-        mostrarMisReservas();
+        // Llamar a la función para obtener las reservas
+        obtenerReservas();
     }
 
+    private void obtenerReservas() {
+        DatabaseReference reservasRef = FirebaseDatabase.getInstance().getReference("Reservas");
 
-    private void mostrarMisReservas() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reservasRef = database.getReference("reservas");
-
+        // Obtener el ID del usuario logueado
         String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        Log.d("MisReservas", "Usuario ID: " + usuarioId);
+        Log.d("MisReservas", "Usuario ID: " + usuarioId);  // Verifica que el usuarioId es correcto
 
-        // Filtrar las reservas del usuario actual
-        reservasRef.orderByChild("usuarioId").equalTo(usuarioId)
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Log.d("MisReservas", "Consulta exitosa");
-                        if (task.getResult() != null && task.getResult().getChildrenCount() > 0) {
-                            Log.d("MisReservas", "Resultados encontrados: " + task.getResult().getChildrenCount());
-                            StringBuilder reservas = new StringBuilder();
-                            for (DataSnapshot snapshot : task.getResult().getChildren()) {
-                                String restaurante = snapshot.child("restaurante").getValue(String.class);
-                                String fecha = snapshot.child("fecha").getValue(String.class);
-                                String hora = snapshot.child("hora").getValue(String.class);
-                                String comensales = snapshot.child("comensales").getValue(String.class);
+        // Crear una lista para almacenar todas las reservas
+        ArrayList<Reserva> reservasList = new ArrayList<>();
 
-                                // Agregar la información de la reserva al StringBuilder
-                                reservas.append("Restaurante: ").append(restaurante)
-                                        .append("\nFecha: ").append(fecha)
-                                        .append("\nHora: ").append(hora)
-                                        .append("\nComensales: ").append(comensales)
-                                        .append("\n\n");
-                            }
+        // Obtener todas las reservas desde Firebase
+        reservasRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful() && task.getResult() != null) {
+                Log.d("MisReservas", "Consulta exitosa, obteniendo todas las reservas...");
 
-                            // Mostrar las reservas en el TextView
-                            textViewDatos.setText(reservas.toString());
-                        } else {
-                            Log.d("MisReservas", "No se encontraron reservas");
-                            textViewDatos.setText("No tienes reservas.");
-                        }
-                    } else {
-                        Log.d("MisReservas", "Error en la consulta: " + task.getException().getMessage());
-                        textViewDatos.setText("Error al obtener las reservas");
+                // Iterar por todas las reservas y agregarlas a la lista
+                for (DataSnapshot snapshot : task.getResult().getChildren()) {
+                    Reserva reserva = snapshot.getValue(Reserva.class);
+                    if (reserva != null && reserva.getUsuarioId().equals(usuarioId)) {
+                        reservasList.add(reserva);  // Agregar reserva a la lista
+                        Log.d("MisReservas", "Reserva encontrada: " + reserva.toString());
                     }
-                })
-                .addOnFailureListener(e -> {
-                    Log.d("MisReservas", "Error al obtener las reservas: " + e.getMessage());
-                    textViewDatos.setText("Error al obtener las reservas");
-                });
+                }
 
+                // Llamar a la función para mostrar las reservas en el LinearLayout
+                mostrarReservas(reservasList);
 
+            } else {
+                Log.e("MisReservas", "Error al obtener las reservas: " + task.getException().getMessage());
+                textViewDatos.setText("No se pudieron cargar las reservas.");
+            }
+        });
     }
 
+    private void mostrarReservas(ArrayList<Reserva> reservasList) {
+        linearLayoutReservas.removeAllViews();  // Limpiar el layout antes de agregar nuevas vistas
 
-    public void volverAMenuPrincipal(View view) {
-        // Regresar a la actividad principal (MainActivity)
-        Intent intent = new Intent(this, MenuPrincipal.class);
-        startActivity(intent);
+        if (reservasList.isEmpty()) {
+            textViewDatos.setText("No tienes reservas.");
+        } else {
+            textViewDatos.setText("");  // Limpiar el mensaje de "Cargando reservas..."
+
+            // Iterar sobre la lista de reservas y agregar cada una al LinearLayout
+            for (Reserva reserva : reservasList) {
+                // Inflar el layout para cada reserva
+                View reservaView = LayoutInflater.from(MisReservas.this)
+                        .inflate(R.layout.item_reserva, linearLayoutReservas, false);
+
+                // Asignar los valores de la reserva a los TextViews correspondientes
+                TextView restauranteTextView = reservaView.findViewById(R.id.textViewRestaurante);
+                TextView fechaTextView = reservaView.findViewById(R.id.textViewFecha);
+                TextView horaTextView = reservaView.findViewById(R.id.textViewHora);
+                TextView comensalesTextView = reservaView.findViewById(R.id.textViewComensales);
+
+                restauranteTextView.setText(reserva.getRestaurante());
+                fechaTextView.setText(reserva.getFecha());
+                horaTextView.setText(reserva.getHora());
+                comensalesTextView.setText(String.valueOf(reserva.getComensales()));
+
+                // Agregar la vista de la reserva al LinearLayout
+                linearLayoutReservas.addView(reservaView);
+            }
+        }
     }
 }
+

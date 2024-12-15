@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Finalamacn4akitagawa"
         tools:targetApi="31">
         <activity
+            android:name=".NuevaReserva3"
+            android:exported="false" />
+        <activity
             android:name=".NuevaReserva2"
             android:exported="false" />
         <activity
